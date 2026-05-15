@@ -1,0 +1,6 @@
+install_dependencies: "corepack enable && corepack prepare yarn@1.22.22 --activate && yarn install --frozen-lockfile"
+build_vsix: "npx vsce package --out source.vsix"
+run_tests: "yarn test"
+coverage:
+  enabled: false
+  threshold: 80

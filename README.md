@@ -51,6 +51,8 @@ For example, `meta/eamodio.gitlens.yml`:
 
 ```yaml
 install_dependencies: "npm ci"
+source_repository: "https://github.com/example/extension.git"
+source_ref: "v1.2.3"
 build_vsix: "npx @vscode/vsce package --out dist/source.vsix"
 run_tests: "npm test -- --coverage"
 coverage:
@@ -72,6 +74,10 @@ coverage:
   file: "coverage/lcov.info"
   threshold: 80
 ```
+
+`source_repository` and `source_ref` are optional. Use them when Marketplace
+metadata points at a monorepo, a different source repository, or a non-standard
+tag such as `pre-release/3.0.19`.
 
 Set `coverage.enabled: false` only for packages whose upstream test command
 does not produce a coverage artifact.

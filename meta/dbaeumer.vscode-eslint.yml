@@ -1,0 +1,9 @@
+# Marketplace version 3.0.19 is tagged as pre-release/3.0.19 upstream.
+install_dependencies: "npm ci"
+source_ref: "pre-release/3.0.19"
+build_vsix: "npx @vscode/vsce package --out source.vsix"
+run_tests: "npx c8 --clean --temp-directory coverage/tmp npm test"
+coverage:
+  enabled: true
+  tool: "c8"
+  threshold: 80

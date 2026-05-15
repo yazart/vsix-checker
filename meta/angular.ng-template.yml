@@ -1,0 +1,11 @@
+# The VSIX manifest points at angular/angular, but the VS Code extension source
+# lives in angular/vscode-ng-language-service. There is no v20.3.3 tag there;
+# v20.3.0 is the nearest public tag for the 20.3 line.
+install_dependencies: "corepack enable && corepack prepare yarn@1.22.22 --activate && yarn install --frozen-lockfile"
+source_repository: "https://github.com/angular/vscode-ng-language-service.git"
+source_ref: "v20.3.0"
+build_vsix: "yarn package"
+run_tests: "yarn test"
+coverage:
+  enabled: false
+  threshold: 80

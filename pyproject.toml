@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vsix-check-pipeline"
+version = "0.1.0"
+description = "CLI pipeline for checking marketplace VSIX packages against source builds."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "vsix-check-pipeline maintainers" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2",
+  "pytest-cov>=5.0",
+]
+
+[project.scripts]
+vsix-check = "vsix_check_pipeline.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vsix_check_pipeline"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=vsix_check_pipeline --cov-report=term-missing --cov-fail-under=80"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["vsix_check_pipeline"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true

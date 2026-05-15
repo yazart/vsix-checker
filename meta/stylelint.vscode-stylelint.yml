@@ -1,0 +1,7 @@
+install_dependencies: "npm ci"
+build_vsix: "npx vsce package --out source.vsix"
+run_tests: "npm run build-bundle && npm run jest -- --coverage"
+coverage:
+  enabled: true
+  tool: "jest"
+  threshold: 80

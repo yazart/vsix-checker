@@ -1,0 +1,8 @@
+# Commands are executed from the cloned repository root.
+install_dependencies: "node -e 'const [major, minor] = process.versions.node.split(`.`).map(Number); if (major < 22 || (major === 22 && minor < 18)) { console.error(`GitLens 17.12.1 requires Node >=22.18.0; current=${process.versions.node}`); process.exit(1); }' && corepack enable && corepack prepare pnpm@10.33.0 --activate && pnpm install --frozen-lockfile"
+build_vsix: "pnpm exec vsce package --no-dependencies --out source.vsix"
+run_tests: "npx c8 --clean --temp-directory coverage/tmp node_modules/.bin/vscode-test"
+coverage:
+  enabled: true
+  tool: "c8"
+  threshold: 80

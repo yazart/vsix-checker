@@ -1,0 +1,6 @@
+install_dependencies: "npm ci"
+build_vsix: "npx vsce package --out source.vsix"
+run_tests: "npm test"
+coverage:
+  enabled: false
+  threshold: 80
