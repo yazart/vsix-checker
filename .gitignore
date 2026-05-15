@@ -1,1 +1,6 @@
 .vsix-check-work
+.venv
+.DS_Store
+*.log
+*.vsix
+coverage
